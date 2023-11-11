@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const locationApi = createApi({
     reducerPath: "locationApi",
-    baseQuery: fetchBaseQuery({ baseUrl: "http://192.168.1.20:3001" }),
+    baseQuery: fetchBaseQuery({ baseUrl: "http://10.0.0.3:3001" }),
     tagTypes: ['Locations'],
     endpoints: (builder) => ({
         getAllLocations: builder.query({
@@ -18,9 +18,16 @@ export const locationApi = createApi({
                 method: 'GET'
             }),
             providesTags: ['Locations']
+        }),
+        searchLocations: builder.query({
+            query: (key)=> ({
+                url: `/api/locations/search/${key}`,
+                method: 'GET'
+            }),
+            providesTags: ['Locations']
         })
     })
 })
 
 
-export const { useGetAllLocationsQuery, useGetLocationQuery } = locationApi
+export const { useGetAllLocationsQuery, useGetLocationQuery, useSearchLocationsQuery } = locationApi

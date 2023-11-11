@@ -3,6 +3,7 @@ import React from 'react'
 import { useGetAllLocationsQuery } from '../redux/locationApi'
 import { COLORS } from '../constants/styles'
 import { useNavigation } from '@react-navigation/native'
+import SearchBar from '../Components/SearchBar'
 
 const Home = () => {
 
@@ -34,6 +35,7 @@ const Home = () => {
   return (
     <View className="flex-1 pt-12 px-4 bg-gray-200 dark:bg-gray-800">
       <Text className="text-2xl text-neutral-600 dark:text-gray-200">Locations</Text>
+      
       {content}
     </View>
   )

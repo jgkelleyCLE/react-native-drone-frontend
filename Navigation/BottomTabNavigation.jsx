@@ -1,7 +1,7 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Settings, Home, Map } from '../Screens'
+import { Settings, Home, Map, Search } from '../Screens'
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import { COLORS } from '../constants/styles';
 import { useColorScheme } from 'nativewind'
@@ -52,6 +52,14 @@ const BottomTabNavigation = () => {
                     return <Ionicons name={ focused ? "home" : "home-outline" } size={30} color={ focused ? color : color } />
                 }
             }}
+        />
+
+        <Tab.Screen 
+            name="Search"
+            component={Search}
+            options={{ tabBarIcon: ({ focused, color }) => {
+                return <Ionicons name="search" size={30} color={focused ? color : color} />
+            } }}
         />
 
         <Tab.Screen 
